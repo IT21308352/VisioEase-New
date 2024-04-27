@@ -6,6 +6,7 @@ const {
     getAllCommentsWithReplies,
     createComment,
     createReply,
+    editReply, // Add the editReply method
     updateComment,
     deleteComment,
     deleteReply,
@@ -27,7 +28,10 @@ router.put('/comments/:commentId', updateComment);
 // DELETE delete a comment
 router.delete('/comments/:commentId', deleteComment);
 
-//Delete reply
-router.delete('/comments/:commentId/:index', deleteReply)
+// DELETE delete a reply
+router.delete('/comments/:commentId/replies/:replyIndex', deleteReply); // Correct parameter name
+
+// PUT edit a reply
+router.put('/comments/:commentId/replies/:replyIndex', editReply); // Add the editReply route
 
 module.exports = router;
